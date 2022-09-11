@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import br.com.cadastro.cadastroDeUsuarios.hr.repoditory.PessoaRepository;
 import br.com.cadastro.cadastroDeUsuarios.rh.domain.Pessoa;
@@ -19,6 +21,11 @@ public class PessoaController {
 	
 	public PessoaController(PessoaRepository pessoaRepository) {
 		this.pessoaRepository = pessoaRepository;
+	}
+	
+	@GetMapping("/")
+	   public String index(){
+	   return "rh/pessoas/index";
 	}
 	
 	@GetMapping("rh/pessoas")
